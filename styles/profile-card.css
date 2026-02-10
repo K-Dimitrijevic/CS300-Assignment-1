@@ -1,0 +1,90 @@
+/* Copilot imported a readable, modern web font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/*reusable variables*/
+:root{
+  --card-bg: #ffffff;
+  --accent: #0b66c2; /* blue */
+  --muted: #6b7280;
+  --text: #0f172a;
+  --border: #e6edf3;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(16,24,40,0.08);
+}
+
+/* Basic page reset and typography */
+* {box-sizing: border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,#f7fbff 0%, #f3f7fb 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.page{max-width:920px;margin:48px auto;padding:16px}
+.page-header h1{font-size:1.5rem;margin:0 0 6px}
+.lead{margin:0 0 20px;color:var(--muted)}
+
+.examples{display:grid;grid-template-columns:1fr;gap:18px}
+
+/* Profile card styles demonstrating box-model */
+article.profile-card{
+  background:var(--card-bg);
+  border:1px solid var(--border); /* border */
+  border-radius:var(--radius);
+  padding:20px; /* padding */
+  margin:0; /* margin */
+  box-shadow:var(--shadow);
+  transition:transform .22s ease, box-shadow .22s ease;
+  max-width:420px;
+}
+
+/* element selector */
+article h2{font-size:1.125rem;margin:0}
+
+.profile-header{display:flex;gap:16px;align-items:center}
+.avatar{flex:0 0 auto;margin:0}
+.avatar img{display:block;border-radius:999px;border:4px solid var(--border);width:120px;height:120px;transition:transform .25s ease, box-shadow .25s ease}
+.profile-meta .role{color:var(--muted);margin-top:4px;font-weight:600}
+
+.bio{color:#111827;margin:14px 0 18px;line-height:1.4}
+
+.profile-footer{margin-top:8px}
+.social-links{list-style:none;padding:0;margin:0;display:flex;gap:10px}
+.social-links li{margin:0}
+.social-links a{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:background-color .18s ease,color .18s ease,transform .15s ease}
+.social-links a svg{width:18px;height:18px;display:block}
+
+/* descendant selector */
+.profile-card .social-links a:hover,
+.profile-card .social-links a:focus{
+  background:rgba(11,102,194,0.06);
+  color:var(--accent);
+  transform:translateY(-3px);
+  outline:2px solid rgba(11,102,194,0.12);
+}
+
+/* attribute selector example for external links */
+a[href^="https"]{box-shadow:none}
+
+/* hover effect on whole card */
+.profile-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(16,24,40,0.12)}
+.profile-card:hover .avatar img{transform:scale(1.04);box-shadow:0 8px 22px rgba(16,24,40,0.08)}
+
+/* accessible focus state */
+a:focus{outline:3px solid rgba(11,102,194,0.18);outline-offset:2px}
+
+.page-footer{color:var(--muted);font-size:.875rem;margin-top:28px}
+
+/* Utility */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Responsive */
+@media (max-width:520px){
+  .page{margin:20px}
+  .profile-header{gap:12px}
+  .avatar img{width:96px;height:96px}
+}
